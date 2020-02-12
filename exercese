@@ -1,0 +1,25 @@
+milk <- read.csv("~/Desktop/milk.csv")
+plot(sales ~ price, data = milk)
+plot(log(sales)~ log(price), data = milk)
+lm_ped = lm(log(sales) ~ log(price), data = milk)
+coef(lm_ped)
+
+curve((x-1)*1.10*x^(-1.62), from=2.61, to=2.615)
+
+plot(sales~price, data = milk)
+
+lm1 = lm(log(sales) ~ log(price), data = milk)
+
+coef(lm1)
+
+plot(log(sales) ~ log(price), data = milk)
+abline(lm1, col = "red")
+
+alpha = exp(coef(lm1)[1])
+alpha
+rate = coef(lm1)[2]
+rate
+
+plot(sales ~ price, data=milk, main = "Price of Milk vs. Number of Sales")
+curve(alpha*(x**rate), add=TRUE, col='red')
+
